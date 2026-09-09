@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  validate-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+        cache: 'pip'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install flake8 pytest
+
+    - name: Code Syntax & Integrity Check
+      run: |
+        python -m py_compile run_experiment.py run_analysis.py
+        python -c "import src.config, src.features.engineering, src.models.factory, src.explainability.shap_engine; print('All core modules imported successfully.')"
+
+    - name: Lint with Flake8
+      run: |
+        # Stop build on syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics --exclude=.private_archive,colab,from_scratch_results
+
+    - name: Verify Sample Dataset
+      run: |
+        python -c "import pandas as pd; df = pd.read_csv('data/sample/sample_application_train.csv'); assert len(df) == 1000; assert 'TARGET' in df.columns; print('Sample dataset verified: 1000 rows, valid target.')"

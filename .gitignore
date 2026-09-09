@@ -1,0 +1,68 @@
+# ===========================================================================
+# Byte-compiled / optimized / DLL files
+# ===========================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ===========================================================================
+# Virtual Environments
+# ===========================================================================
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# ===========================================================================
+# Large Datasets & Parquet Files (GitHub 100MB limit guard)
+# ===========================================================================
+data/raw/application_train.csv
+data/raw/*.zip
+data/raw/*.tar.gz
+data/processed/*.parquet
+application_train.csv
+
+# Keep column descriptions and sample dataset tracked
+!data/raw/HomeCredit_columns_description.csv
+!data/sample/sample_application_train.csv
+
+# ===========================================================================
+# Private / Internal Academic Drafts & Handbooks
+# ===========================================================================
+.private_archive/
+*.tmp
+*.bak
+* - Copy.docx
+*need humanize*.docx
+*Original_Backup*.docx
+MSc_Project_Handbook*.docx
+Ridita Zaman Adikta.docx
+
+# ===========================================================================
+# Jupyter Notebook Checkpoints & Scratch Executions
+# ===========================================================================
+.ipynb_checkpoints/
+*-checkpoint.ipynb
+STANDALONE_executed.ipynb
+*.nbconvert.ipynb
+colab_reproduction_results.zip
+
+# ===========================================================================
+# Logs & Runtime Checkpoints
+# ===========================================================================
+logs/*.log
+*.log
+reports/tables/*_quick.csv
+
+# ===========================================================================
+# Operating System & IDE Files
+# ===========================================================================
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace

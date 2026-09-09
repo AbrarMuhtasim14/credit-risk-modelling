@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this benchmark or codebase in your research, please cite it as below."
+authors:
+  - family-names: "Adikta"
+    given-names: "Ridita Zaman"
+    affiliation: "University of South Wales"
+title: "Loan Default Prediction Using Machine Learning: A Reproducible Experimental Study on Class Imbalance and Model Explainability"
+version: 1.0.0
+date-released: 2026-09-01
+url: "https://github.com/AbrarMuhtasim14/credit-risk-modelling"
+keywords:
+  - "credit risk"
+  - "class imbalance"
+  - "smote"
+  - "cost-sensitive learning"
+  - "explainable ai"
+  - "shap"
+  - "machine learning"

@@ -1,0 +1,217 @@
+Loading data...
+======================================================================
+1. DATASET OVERVIEW
+======================================================================
+Rows: 307,511   Columns: 123
+Dtype counts:
+float64    65
+int64      41
+str        17
+
+Categorical: 17 | Binary flags: 28 | Numeric: 78
+
+======================================================================
+2. DUPLICATES
+======================================================================
+Exact duplicate rows: 0
+Duplicate SK_ID_CURR: 0
+
+======================================================================
+3. TARGET VARIABLE (class imbalance)
+======================================================================
+TARGET
+0    282686
+1     24825
+
+Default rate: 8.0729%
+Imbalance ratio (non-default : default): 11.39 : 1
+
+======================================================================
+4. APPLICATION DATE (temporal structure)
+======================================================================
+Parse failures: 0
+Range: 2018-01-01 00:00:00  ->  2020-12-31 00:00:00
+
+Monthly applications & default rate (first 6 / last 6):
+         count    mean
+_m                    
+2018-01   8706  0.0776
+2018-02   7864  0.0782
+2018-03   8705  0.0833
+2018-04   8425  0.0832
+2018-05   8706  0.0813
+2018-06   8425  0.0809
+...
+         count    mean
+_m                    
+2020-07   8706  0.0783
+2020-08   8706  0.0812
+2020-09   8425  0.0767
+2020-10   8706  0.0812
+2020-11   8425  0.0807
+2020-12   8425  0.0769
+
+======================================================================
+5. MISSING VALUES
+======================================================================
+Columns with any missing: 67 / 123
+Columns >50% missing: 41
+Columns >30% missing: 50
+Columns >10% missing: 57
+
+Top 25 by missing %:
+                            missing_pct  missing_n                                                   description
+AMT_ANNUITY                        0.00         12                                                  Loan annuity
+AMT_CREDIT                         0.00          0                                     Credit amount of the loan
+AMT_GOODS_PRICE                    0.09        278  For consumer loans it is the price of the goods for which th
+AMT_INCOME_TOTAL                   0.00          0                                          Income of the client
+AMT_REQ_CREDIT_BUREAU_DAY         13.50      41519  Number of enquiries to Credit Bureau about the client one da
+AMT_REQ_CREDIT_BUREAU_HOUR        13.50      41519  Number of enquiries to Credit Bureau about the client one ho
+AMT_REQ_CREDIT_BUREAU_MON         13.50      41519  Number of enquiries to Credit Bureau about the client one mo
+AMT_REQ_CREDIT_BUREAU_QRT         13.50      41519  Number of enquiries to Credit Bureau about the client 3 mont
+AMT_REQ_CREDIT_BUREAU_WEEK        13.50      41519  Number of enquiries to Credit Bureau about the client one we
+AMT_REQ_CREDIT_BUREAU_YEAR        13.50      41519  Number of enquiries to Credit Bureau about the client one da
+APARTMENTS_AVG                    50.75     156061  Normalized information about building where the client lives
+APARTMENTS_MEDI                   50.75     156061  Normalized information about building where the client lives
+APARTMENTS_MODE                   50.75     156061  Normalized information about building where the client lives
+BASEMENTAREA_AVG                  58.52     179943  Normalized information about building where the client lives
+BASEMENTAREA_MEDI                 58.52     179943  Normalized information about building where the client lives
+BASEMENTAREA_MODE                 58.52     179943  Normalized information about building where the client lives
+CNT_CHILDREN                       0.00          0                             Number of children the client has
+CNT_FAM_MEMBERS                    0.00          2                      How many family members does client have
+CODE_GENDER                        0.00          0                                          Gender of the client
+COMMONAREA_AVG                    69.87     214865  Normalized information about building where the client lives
+COMMONAREA_MEDI                   69.87     214865  Normalized information about building where the client lives
+COMMONAREA_MODE                   69.87     214865  Normalized information about building where the client lives
+DAYS_BIRTH                         0.00          0               Client's age in days at the time of application
+DAYS_EMPLOYED                      0.00          0  How many days before the application the person started curr
+DAYS_ID_PUBLISH                    0.00          0  How many days before the application did client change the i
+
+Avg cell missingness — default=1: 0.2688 | default=0: 0.2418
+
+======================================================================
+6. KNOWN ANOMALIES & DATA QUALITY
+======================================================================
+DAYS_EMPLOYED == 365243 (sentinel for unemployed/retired): 55,374 (18.01%)
+  default rate in sentinel group: 5.400% vs others: 8.660%
+DAYS_BIRTH >= 0 (invalid): 0
+Age range derived from DAYS_BIRTH: 20.5 – 69.1 years
+CODE_GENDER: 'XNA' values = 4
+
+AMT_ANNUITY: min=1,616 max=258,026 (missing 0.00%)
+AMT_GOODS_PRICE missing: 0.09%
+AMT_INCOME_TOTAL: min=25,650 max=117,000,000
+  incomes > 1,000,000: 250
+
+======================================================================
+7. KEY NUMERIC FEATURES
+======================================================================
+                               count       mean        std       min        25%        50%        75%           max
+AMT_INCOME_TOTAL            307511.0  168797.92  237123.15  25650.00  112500.00  147150.00  202500.00  1.170000e+08
+AMT_CREDIT                  307511.0  599026.00  402490.78  45000.00  270000.00  513531.00  808650.00  4.050000e+06
+AMT_ANNUITY                 307499.0   27108.57   14493.74   1615.50   16524.00   24903.00   34596.00  2.580255e+05
+AMT_GOODS_PRICE             307233.0  538396.21  369446.46  40500.00  238500.00  450000.00  679500.00  4.050000e+06
+DAYS_BIRTH                  307511.0  -16037.00    4363.99 -25229.00  -19682.00  -15750.00  -12413.00 -7.489000e+03
+DAYS_EMPLOYED               307511.0   63815.05  141275.77 -17912.00   -2760.00   -1213.00    -289.00  3.652430e+05
+DAYS_REGISTRATION           307511.0   -4986.12    3522.89 -24672.00   -7479.50   -4504.00   -2010.00  0.000000e+00
+DAYS_ID_PUBLISH             307511.0   -2994.20    1509.45  -7197.00   -4299.00   -3254.00   -1720.00  0.000000e+00
+REGION_POPULATION_RELATIVE  307511.0       0.02       0.01      0.00       0.01       0.02       0.03  7.000000e-02
+EXT_SOURCE_1                134133.0       0.50       0.21      0.01       0.33       0.51       0.68  9.600000e-01
+EXT_SOURCE_2                306851.0       0.51       0.19      0.00       0.39       0.57       0.66  8.500000e-01
+EXT_SOURCE_3                246546.0       0.51       0.19      0.00       0.37       0.54       0.67  9.000000e-01
+
+EXT_SOURCE columns (external risk scores):
+  EXT_SOURCE_1: missing 56.38%, corr with TARGET = -0.155
+  EXT_SOURCE_2: missing 0.21%, corr with TARGET = -0.160
+  EXT_SOURCE_3: missing 19.83%, corr with TARGET = -0.179
+
+======================================================================
+8. CATEGORICAL FEATURES
+======================================================================
+                            n_unique  missing_pct
+application_date                1096         0.00
+ORGANIZATION_TYPE                 58         0.00
+OCCUPATION_TYPE                   18        31.35
+NAME_INCOME_TYPE                   8         0.00
+NAME_TYPE_SUITE                    7         0.42
+WALLSMATERIAL_MODE                 7        50.84
+WEEKDAY_APPR_PROCESS_START         7         0.00
+NAME_FAMILY_STATUS                 6         0.00
+NAME_HOUSING_TYPE                  6         0.00
+NAME_EDUCATION_TYPE                5         0.00
+FONDKAPREMONT_MODE                 4        68.39
+HOUSETYPE_MODE                     3        50.18
+CODE_GENDER                        3         0.00
+FLAG_OWN_CAR                       2         0.00
+NAME_CONTRACT_TYPE                 2         0.00
+FLAG_OWN_REALTY                    2         0.00
+EMERGENCYSTATE_MODE                2        47.40
+
+======================================================================
+9. CORRELATION WITH TARGET
+======================================================================
+Columns coerced (contained non-numeric values):
+  FLAG_OWN_CAR: stray values = ['N', 'Y']
+  FLAG_OWN_REALTY: stray values = ['Y', 'N']
+Top 20 features by |corr| with TARGET:
+                             abs_corr  signed_corr                                                             description
+EXT_SOURCE_3                   0.1789      -0.1789                              Normalized score from external data source
+EXT_SOURCE_2                   0.1605      -0.1605                              Normalized score from external data source
+EXT_SOURCE_1                   0.1553      -0.1553                              Normalized score from external data source
+DAYS_BIRTH                     0.0782       0.0782                         Client's age in days at the time of application
+REGION_RATING_CLIENT_W_CITY    0.0609       0.0609  Our rating of the region where client lives with taking city into acco
+REGION_RATING_CLIENT           0.0589       0.0589                     Our rating of the region where client lives (1,2,3)
+DAYS_LAST_PHONE_CHANGE         0.0552       0.0552                How many days before application did client change phone
+DAYS_ID_PUBLISH                0.0515       0.0515  How many days before the application did client change the identity do
+REG_CITY_NOT_WORK_CITY         0.0510       0.0510  Flag if client's permanent address does not match work address (1=diff
+FLAG_EMP_PHONE                 0.0460       0.0460                             Did client provide work phone (1=YES, 0=NO)
+DAYS_EMPLOYED                  0.0449      -0.0449  How many days before the application the person started current employ
+REG_CITY_NOT_LIVE_CITY         0.0444       0.0444  Flag if client's permanent address does not match contact address (1=d
+FLAG_DOCUMENT_3                0.0443       0.0443                                           Did client provide document 3
+FLOORSMAX_AVG                  0.0440      -0.0440  Normalized information about building where the client lives, What is 
+FLOORSMAX_MEDI                 0.0438      -0.0438  Normalized information about building where the client lives, What is 
+FLOORSMAX_MODE                 0.0432      -0.0432  Normalized information about building where the client lives, What is 
+DAYS_REGISTRATION              0.0420       0.0420  How many days before the application did client change his registratio
+AMT_GOODS_PRICE                0.0396      -0.0396  For consumer loans it is the price of the goods for which the loan is 
+OWN_CAR_AGE                    0.0376       0.0376                                                     Age of client's car
+REGION_POPULATION_RELATIVE     0.0372      -0.0372  Normalized population of region where client lives (higher number mean
+
+Highly correlated feature pairs (|r| > 0.9, numeric only, sample of 30k rows):
+  DAYS_EMPLOYED <-> FLAG_EMP_PHONE: -1.0
+  YEARS_BUILD_AVG <-> YEARS_BUILD_MEDI: 0.999
+  COMMONAREA_AVG <-> COMMONAREA_MEDI: 0.999
+  NONLIVINGAPARTMENTS_AVG <-> NONLIVINGAPARTMENTS_MEDI: 0.999
+  LIVINGAPARTMENTS_AVG <-> LIVINGAPARTMENTS_MEDI: 0.998
+  OBS_30_CNT_SOCIAL_CIRCLE <-> OBS_60_CNT_SOCIAL_CIRCLE: 0.998
+  APARTMENTS_AVG <-> APARTMENTS_MEDI: 0.997
+  BASEMENTAREA_AVG <-> BASEMENTAREA_MEDI: 0.997
+  ENTRANCES_AVG <-> ENTRANCES_MEDI: 0.997
+  FLOORSMIN_AVG <-> FLOORSMIN_MEDI: 0.997
+  LIVINGAREA_AVG <-> LIVINGAREA_MEDI: 0.997
+  ELEVATORS_AVG <-> ELEVATORS_MEDI: 0.996
+  FLOORSMAX_AVG <-> FLOORSMAX_MEDI: 0.996
+  LANDAREA_AVG <-> LANDAREA_MEDI: 0.996
+  YEARS_BEGINEXPLUATATION_AVG <-> YEARS_BEGINEXPLUATATION_MEDI: 0.993
+  NONLIVINGAREA_AVG <-> NONLIVINGAREA_MEDI: 0.993
+  NONLIVINGAPARTMENTS_MODE <-> NONLIVINGAPARTMENTS_MEDI: 0.993
+  NONLIVINGAPARTMENTS_AVG <-> NONLIVINGAPARTMENTS_MODE: 0.991
+  FLOORSMAX_MODE <-> FLOORSMAX_MEDI: 0.988
+  FLOORSMIN_MODE <-> FLOORSMIN_MEDI: 0.988
+  ... total pairs |r|>0.9: 62
+
+======================================================================
+10. POTENTIAL DATA LEAKAGE / SCOPE CANDIDATES (review & document)
+======================================================================
+  REG_REGION_NOT_LIVE_REGION: Flag if client's permanent address does not match contact address (1=different, 0=same, at
+  REG_REGION_NOT_WORK_REGION: Flag if client's permanent address does not match work address (1=different, 0=same, at re
+  LIVE_REGION_NOT_WORK_REGION: Flag if client's contact address does not match work address (1=different, 0=same, at regi
+  REG_CITY_NOT_LIVE_CITY: Flag if client's permanent address does not match contact address (1=different, 0=same, at
+  LIVE_CITY_NOT_WORK_CITY: Flag if client's contact address does not match work address (1=different, 0=same, at city
+  REG_CITY_NOT_WORK_CITY: Flag if client's permanent address does not match work address (1=different, 0=same, at ci
+  DAYS_LAST_PHONE_CHANGE: How many days before application did client change phone
+  FLAG_DOCUMENT_2: Did client provide document 2
+  FLAG_DOCUMENT_3: Did client provide document 3
+
+======================================================================
+EDA COMPLETE
+======================================================================
