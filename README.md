@@ -11,6 +11,23 @@
 
 ---
 
+> ### ⚡ Recruiter Quick-Test: Production-Deployed Banking Credit Decision Portal
+> While most data science portfolios stop at offline Jupyter notebooks or Google Colab experiments, this system is **fully engineered, containerized, and deployed to live production infrastructure**. It allows risk officers, credit committees, and hiring managers to simulate real-world commercial loan underwriting, execute CCAR macroeconomic stress-testing (+500 bps rate spikes), generate legal FCRA adverse action disclosures, and compute Basel III / IV capital adequacy in real time.
+>
+> 🌐 **Launch Live Banking Portal:** [https://credit-risk-underwriting-portal.onrender.com](https://credit-risk-underwriting-portal.onrender.com)  
+> 🤗 **Hugging Face Space:** [https://huggingface.co/spaces/Abrar144/credit-risk-underwriting-engine](https://huggingface.co/spaces/Abrar144/credit-risk-underwriting-engine)  
+> 📓 **Full Pipeline Notebook:** [Credit_Risk_Prediction_Full_pipeline (1).ipynb](Credit_Risk_Prediction_Full_pipeline%20(1).ipynb)
+
+<p align="center">
+  <a href="https://credit-risk-underwriting-portal.onrender.com" target="_blank">
+    <img src="reports/figures/live_ui_dashboard.png" width="95%" alt="Live Deployed Credit Underwriting Portal" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);" />
+  </a>
+  <br/>
+  <em>👆 <b>Click the interactive portal screenshot above</b> to test live loan underwriting, CCAR macro stress-tests, and regulatory disclosures in your browser.</em>
+</p>
+
+---
+
 ## 📌 Executive Summary & Key Findings
 
 In retail lending, default prediction models operate under two severe constraints: **extreme class imbalance** (~8% default rate) and **asymmetric financial misclassification costs** (approving a defaulter is 10× more costly to a bank than rejecting a creditworthy applicant). Furthermore, under regulations like **GDPR Article 22** and the **US Fair Credit Reporting Act (FCRA)**, institutions cannot deploy black-box models without providing clear, defensible adverse action reasons to declined applicants.
