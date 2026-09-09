@@ -4,9 +4,8 @@
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Scikit-Learn](https://img.shields.io/badge/scikit--learn-1.5%2B-F7931E?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
 [![XGBoost](https://img.shields.io/badge/XGBoost-2.1%2B-EB5424?logo=xgboost&logoColor=white)](https://xgboost.readthedocs.io/)
-[![SHAP](https://img.shields.io/badge/SHAP-Explainability-brightgreen)](https://shap.readthedocs.io/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AbrarMuhtasim14/credit-risk-modelling/blob/main/notebooks/credit_risk_standalone_pipeline.ipynb)
+[![Streamlit Web UI](https://img.shields.io/badge/Streamlit-Interactive%20UI-FF4B4B?logo=streamlit&logoColor=white)](#-interactive-web-app--recruiter-demo)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AbrarMuhtasim14/credit-risk-modelling/blob/main/Credit_Risk_Prediction_Full_pipeline%20(1).ipynb)
 [![CI](https://github.com/AbrarMuhtasim14/credit-risk-modelling/actions/workflows/ci.yml/badge.svg)](https://github.com/AbrarMuhtasim14/credit-risk-modelling/actions)
 
 ---
@@ -117,10 +116,10 @@ flowchart TD
 
 ---
 
-## 🚀 Quickstart & Reproduction
+## 🚀 Quickstart & Interactive Demos
 
-### 1. Zero-Download Interactive Scoring (10 Seconds)
-Score a sample applicant and generate an instant credit decision with adverse action explanations:
+### 1. 💻 Interactive Recruiter Web Dashboard (Streamlit)
+Launch the interactive loan underwriting & explainability web app with presets, sliders, and real-time decisioning:
 
 ```bash
 # Clone the repository
@@ -130,11 +129,34 @@ cd credit-risk-modelling
 # Install dependencies
 pip install -r requirements.txt
 
-# Run the interactive scoring engine
+# Run the web dashboard
+streamlit run app.py
+```
+
+**What Recruiters Can Test in the UI:**
+- **Applicant Presets:** Prime borrower (low risk), Subprime borrower (high risk), Borderline applicant (manual review), or random applicant from dataset.
+- **Interactive Underwriting:** Instant default probability, credit decision (`APPROVED`, `MANUAL REVIEW`, `DECLINED`), and financial loss estimates.
+- **Regulatory Adverse Action Factors:** Real-time horizontal bar chart showing top factors elevating or mitigating risk (GDPR Art. 22 / US FCRA compliant).
+
+---
+
+### 2. 📓 Complete End-to-End Pipeline Notebook
+The entire project — data ingestion, EDA, feature engineering, 9-cell repeated cross-validation (135 model fits), out-of-time evaluation, paired hypothesis tests, and TreeSHAP vs LinearSHAP explainability — is contained in a single self-contained notebook:
+
+👉 **[`Credit_Risk_Prediction_Full_pipeline (1).ipynb`](Credit_Risk_Prediction_Full_pipeline%20(1).ipynb)**
+
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AbrarMuhtasim14/credit-risk-modelling/blob/main/Credit_Risk_Prediction_Full_pipeline%20(1).ipynb)
+
+---
+
+### 3. ⚡ Zero-Download CLI Scoring (10 Seconds)
+Score a sample applicant directly from the terminal without downloading the full 152 MB dataset:
+
+```bash
 python scripts/score_applicant.py --sample
 ```
 
-**Output Example:**
+**Terminal Output:**
 ```text
 ===========================================================================
  LOAN APPLICANT RISK EVALUATION REPORT  |  Applicant ID: 145913
@@ -155,14 +177,18 @@ python scripts/score_applicant.py --sample
 ===========================================================================
 ```
 
-### 2. Fast Smoke Test (2 Minutes)
-Verify that the entire training, cross-validation, and metric logging pipeline executes cleanly:
+---
+
+### 4. 🧪 Fast Pipeline Smoke Test (2 Minutes)
+Verify that the entire feature engineering, cross-validation, and metric logging pipeline executes cleanly:
 ```bash
 python run_experiment.py --quick
 ```
 
-### 3. Full Experiment Reproduction
-To reproduce the full $3 \times 5$ repeated CV (135 model fits) and the out-of-time evaluation:
+---
+
+### 5. 🔬 Full Experiment Reproduction
+To reproduce the full $3 \times 5$ repeated CV (135 model fits) and the out-of-time evaluation from scratch:
 ```bash
 # 1. Download full dataset
 python scripts/download_data.py
@@ -174,15 +200,14 @@ python run_experiment.py
 python run_analysis.py
 ```
 
-### 4. 1-Click Cloud Reproduction (Google Colab)
-Open [`notebooks/credit_risk_standalone_pipeline.ipynb`](notebooks/credit_risk_standalone_pipeline.ipynb) in Google Colab to run the entire end-to-end pipeline in a cloud runtime without local setup.
-
 ---
 
 ## 📁 Repository Structure
 
 ```
 credit-risk-modelling/
+├── app.py                           # Interactive Streamlit Web Application / Recruiter Demo
+├── Credit_Risk_Prediction_Full_pipeline (1).ipynb # Full end-to-end self-contained reproduction notebook
 ├── .github/workflows/ci.yml         # Automated GitHub Actions CI pipeline
 ├── data/
 │   ├── sample/                      # Included sample dataset for instant zero-download tests
@@ -222,39 +247,5 @@ credit-risk-modelling/
 │   └── utils/
 │       └── stats_testing.py         # Paired t-tests, Wilcoxon, Cohen's d effect sizes
 ├── pyproject.toml                   # Modern Python build and package specifications
-├── requirements.txt                 # Pinned exact environment dependencies
-├── LICENSE                          # MIT License
-└── CITATION.cff                     # Academic citation metadata
+└── requirements.txt                 # Pinned exact environment dependencies
 ```
-
----
-
-## 📜 Citation & Academic Attribution
-
-If you utilize this experimental design, methodology, or code in academic research or commercial benchmarking, please cite:
-
-```bibtex
-@mastersthesis{adikta2026creditrisk,
-  author       = {Ridita Zaman Adikta},
-  title        = {Loan Default Prediction Using Machine Learning: A Reproducible Experimental Study on Class Imbalance and Model Explainability},
-  school       = {University of South Wales},
-  year         = {2026},
-  note         = {Faculty of Computing, Engineering and Science}
-}
-```
-
----
-
-## 👤 Author & Connect
-
-**Ridita Zaman Adikta**  
-MSc Data Science — *University of South Wales*  
-Specializing in Applied Machine Learning, Risk Analytics, and Explainable AI.
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?logo=linkedin&logoColor=white)](https://www.linkedin.com/)
-[![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?logo=github&logoColor=white)](https://github.com/)
-
----
-
-## 📄 License
-This project is licensed under the terms of the [MIT License](LICENSE).
