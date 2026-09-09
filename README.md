@@ -1,10 +1,11 @@
 # Credit Risk Modelling & Explainable AI (XAI)
 ### *A Reproducible Study on Class Imbalance Strategies, Temporal Validation, and Model Interpretability for Loan Default Prediction*
 
+[![Hugging Face Space](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-yellow?style=for-the-badge)](https://huggingface.co/spaces/Abrar144/credit-risk-underwriting-engine)
+[![Live Web Portal](https://img.shields.io/badge/Live%20Portal-credit--risk--underwriting--portal.onrender.com-success?style=for-the-badge&logo=render&logoColor=white)](https://credit-risk-underwriting-portal.onrender.com)
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Scikit-Learn](https://img.shields.io/badge/scikit--learn-1.5%2B-F7931E?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
 [![XGBoost](https://img.shields.io/badge/XGBoost-2.1%2B-EB5424?logo=xgboost&logoColor=white)](https://xgboost.readthedocs.io/)
-[![Streamlit Web UI](https://img.shields.io/badge/Streamlit-Interactive%20UI-FF4B4B?logo=streamlit&logoColor=white)](#-interactive-web-app--recruiter-demo)
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AbrarMuhtasim14/credit-risk-modelling/blob/main/Credit_Risk_Prediction_Full_pipeline%20(1).ipynb)
 [![CI](https://github.com/AbrarMuhtasim14/credit-risk-modelling/actions/workflows/ci.yml/badge.svg)](https://github.com/AbrarMuhtasim14/credit-risk-modelling/actions)
 
